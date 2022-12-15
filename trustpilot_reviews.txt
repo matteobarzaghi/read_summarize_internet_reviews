@@ -1,0 +1,3 @@
+https://it.trustpilot.com/review/wonderbly.com?utm_medium=trustbox&utm_source=Slider
+
+//div[contains(@class, "styles_reviewContent")]/p[@data-service-review-text-typography]
