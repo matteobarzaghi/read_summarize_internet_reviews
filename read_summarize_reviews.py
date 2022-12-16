@@ -11,7 +11,7 @@ response = requests.get(url)
 tree = html.fromstring(response.text)
 
 # Replace this with the XPath expression that you want to use to find the element
-xpath = 'xpath'
+xpath = '//div[contains(@class, "styles_reviewContent")]/p[@data-service-review-text-typography]'
 
 # Use the XPath expression to find the element on the page
 elements = tree.xpath(xpath)
@@ -26,6 +26,8 @@ for element in elements:
 # Join the list of text with a delimiter between each element
 text = " \n\n ".join(text_list)
 
+print(text)
+
 # Read the API key from the 'api_key.txt' file
 with open('api_key.txt', 'r') as f:
     api_key = f.read().strip()
@@ -36,7 +38,7 @@ import openai
 openai.api_key = api_key
 
 prompt = (
-    "Summarize the general mood of the internet reviews provided. \n"
+    "write an extensive insight made of bullets points of what customers like and dislike about these books. \n"
     + text
 )
 
