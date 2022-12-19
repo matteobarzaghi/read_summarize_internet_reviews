@@ -1,4 +1,5 @@
 import requests
+import openai
 from lxml import html
 
 # Replace this with the URL of the webpage that you want to scrape
@@ -32,11 +33,10 @@ print(text)
 with open('api_key.txt', 'r') as f:
     api_key = f.read().strip()
 
-# Use GPT-3 to summarize the general mood of the internet reviews
-import openai
 #openai.api_key = secrets["api_key"]
 openai.api_key = api_key
 
+# Use GPT-3 to summarize the general mood of the internet reviews
 prompt = (
     "write an extensive insight made of bullets points of what customers like and dislike about these books. \n"
     + text
